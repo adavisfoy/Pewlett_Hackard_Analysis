@@ -45,6 +45,7 @@ CREATE TABLE dept_emp (
 	PRIMARY KEY (emp_no, dept_no)
 );
 
+--having issues with this one - do I also need to update Employees table? Add foreign keys? 
 CREATE TABLE titles (
 	emp_no INT NOT NULL,
 	title VARCHAR NOT NULL, 
@@ -54,3 +55,5 @@ CREATE TABLE titles (
 	FOREIGN KEY (emp_no) REFERENCES salaries (emp_no),
 	PRIMARY KEY (emp_no)
 );
+
+DROP TABLE titles;
