@@ -14,6 +14,9 @@ Result highlights are outlined below:
 
 - Point 1: Based on the count of unique titles of retirees, Pewlett Hackard will be losing a large amount of "Senior" employees, including 25,916 Senior Engineers. Given that the Pewlett Hackard company specializes in technology, it will be important to take proactive steps to remain competetive. 
 - Point 2: The number of Senior Engineers far outweighs Engineers. Senior Engineers account for 71% of all engineers, Engineers account for 26% of all engineers, and Assistant Engineers account for only 3% of the total. In addition to the mentorship program, Pewlett Hackard will need to consider hiring more entry- or mid-level Engineers to supplement their workforce.   
+
+![Retirees_by_Title](Retirees_by_Title.png)
+
 - Point 3: Luckily, there are 529 Senior Engineers who are eligible to be mentors based on criteria outlined by PewLett Hackard.  
 - Point 4: Interestingly, there are 29 Assistant Engineers who qualify to be mentors. Pewlett Hackard should analyze whether or not a promotion is deserved in these cases. If so, it would help them more adequately participate in the mentorship program. 
 
