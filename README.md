@@ -1,7 +1,9 @@
-# Pewlett_Hackard_Analysis
+# Pewlett Hackard Analysis
 
 ## Overview of the analysis: 
+
 The purpose of this analysis was to help Pewlett Hackard leadership prepare for a predicted "silver tsunami" of retirements in the company. Our goal was to help Pewlett Hackard future-proof the company by doing the following: 
+
 - Setting up a SQL relational database using PostgreSQL
 - Writing SQL queries in the pgAdmin client to analyze the data including:  
   - Determining how many people will be retiring and, of those employees, who is eligible for a retirement package.
@@ -19,6 +21,8 @@ Result highlights are outlined below:
 
 - Point 3: Luckily, there are 529 Senior Engineers who are eligible to be mentors based on criteria outlined by PewLett Hackard.  
 - Point 4: Interestingly, there are 29 Assistant Engineers who qualify to be mentors. Pewlett Hackard should analyze whether or not a promotion is deserved in these cases. If so, it would help them more adequately participate in the mentorship program. 
+
+![Mentors_by_Title](Mentors_by_Title.png)
 
 ## Summary: 
 
