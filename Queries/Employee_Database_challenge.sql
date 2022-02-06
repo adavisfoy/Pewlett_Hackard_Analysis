@@ -18,7 +18,7 @@ ORDER BY e.emp_no ASC;
 
 select * from retirement_titles;
 
--- Get Unique Titles Table - keep only most recent title of each employee
+-- Get Unique Titles Table - keep only most recent title of each retirement-eligible employee
 SELECT DISTINCT ON (rt.emp_no)
 rt.emp_no,
 rt.first_name,
@@ -29,12 +29,13 @@ FROM retirement_titles AS rt
 WHERE (rt.to_date = '9999-01-01')
 ORDER BY rt.emp_no ASC, rt.to_date DESC;
 
--- Get count of number of titles from the unique titles table
+-- Get count of number of titles of retirees from the unique titles table
 SELECT COUNT(emp_no), title
 INTO retiring_titles
 FROM unique_titles
 GROUP BY title
 ORDER BY COUNT DESC; 
+
 
 --Deliverable 2: Mentorship-Eligibility table that holds current employees born during certain time
 SELECT DISTINCT ON (e.emp_no)
@@ -53,3 +54,14 @@ INNER JOIN titles AS ti
 ON (ti.emp_no = e.emp_no)
 WHERE ((ti.to_date = '9999-01-01') AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31'))
 ORDER BY e.emp_no ASC;
+
+
+--Deliverable 3: 2 additional queries to provide more insight into "silver tsunami."
+-- Get count of employees for mentorship eligibility program
+SELECT COUNT(emp_no) FROM mentorship_eligibility;
+
+-- Get count by title of employees eligible for mentorship program
+SELECT COUNT(emp_no), title
+FROM mentorship_eligibility
+GROUP BY title
+ORDER BY COUNT DESC;

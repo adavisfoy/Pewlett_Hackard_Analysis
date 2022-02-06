@@ -95,7 +95,7 @@ FROM retirement_info as ri
 LEFT JOIN dept_emp as de
 ON ri.emp_no = de.emp_no;
 
---Create new table with employees that are still employed with company
+--Create new table with retirement-eligible employees that are still employed with company
 SELECT ri.emp_no,
 	ri.first_name,
 	ri.last_name, 
@@ -105,6 +105,10 @@ FROM retirement_info as ri
 LEFT JOIN dept_emp as de
 ON ri.emp_no = de.emp_no
 WHERE de.to_date = ('9999-01-01');
+
+--count of retirement-eligible employees currently employed
+SELECT COUNT(ce.emp_no)
+FROM current_emp 
 
 -- Employee count by department number
 SELECT COUNT(ce.emp_no), de.dept_no
@@ -128,7 +132,7 @@ ORDER BY to_date DESC;
 
 Select * from employees;
 
---Create List 1 for Employee Information 
+--Create List 1 for Retiree Information + Salary 
 SELECT e.emp_no, 
 e.first_name, 
 e.last_name,
@@ -144,6 +148,22 @@ ON (e.emp_no = de.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 AND (de.to_date != '9999-01-01');
+
+--Create List 2 for Retiring Managers Still With Company
+-- List of managers per department
+SELECT  dm.dept_no,
+        d.dept_name,
+        dm.emp_no,
+        ce.last_name,
+        ce.first_name,
+        dm.from_date,
+        dm.to_date
+--INTO manager_info
+FROM dept_manager AS dm
+    INNER JOIN departments AS d
+        ON (dm.dept_no = d.dept_no)
+    INNER JOIN current_emp AS ce
+        ON (dm.emp_no = ce.emp_no);
 
 -- Create LIST 3 for Department Retirees
 SELECT ce.emp_no,
@@ -188,6 +208,25 @@ ON (d.dept_no = de.dept_no)
 WHERE d.dept_name IN ('Sales', 'Development');
 
 DROP TABLE sales_dev_info;
+
+select * from current_emp;
+select * from current_emp_dept;
+select * from departments;
+select * from dept_emp;
+select * from dept_info;
+select * from dept_manager;
+select * from emp_info;
+select * from employees;
+select * from manager_info;
+select * from mentorship_eligibility;
+select * from retirement_info;
+select * from retirement_titles;
+select * from retiring_titles;
+select * from salaries;
+select * from sales_dev_info;
+select * from sales_info;
+select * from titles;
+select * from unique_titles;
 
 -- Deliverable 1: The Number of Retiring Employees by Title
 -- Deliverable 2: The Employees Eligible for the Mentorship Program
